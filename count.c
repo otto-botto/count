@@ -43,15 +43,14 @@ char* build_str(double words) {
     char* str = (char*)malloc(256 * sizeof(char));
     str[0] = '\0';
 
-    strcat(str, "{\"words\": ");
+    strcat(str, "words: ");
     char tmp[max_words];
-    sprintf(tmp, "%.lf,", words);
+    sprintf(tmp, "%.lf\n", words);
     strcat(str, tmp);
-    strcat(str, "\"hours\": ");
+    strcat(str, "hours: ");
     char tmp2[max_words];
-    sprintf(tmp2, "%.1lf,", hours);
+    sprintf(tmp2, "%.1lf\n", hours);
     strcat(str, tmp2);
-    strcat(str, "}");
     return str;
 }
 
