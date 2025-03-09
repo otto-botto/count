@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 #include "server.h"
 #include "count.h"
 
 int main(int argc, char* argv[]) {
-    Server server = create_server(5530);
+    Server server = create_server(5531);
     while (1) {
         Request request = next_request(&server);
         switch(request.method) {
@@ -12,7 +13,10 @@ int main(int argc, char* argv[]) {
             respond(&server, &request, 200, message);
             break;
             case POST:
-                count(server, request);
+                if(strcmp(request.path, "/count") == 0) {
+                    count(server, request);
+                }
+
             break;
             default:
 
