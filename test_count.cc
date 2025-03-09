@@ -25,3 +25,9 @@ TEST(TestCount, TestingBiography) {
     double words = count_words(file_path);
     printf("%0.1lf\n", words);
 }
+
+TEST(TestCount, TestBuildStr) {
+    char file_path[100] = "/home/lora/Documents/books/dracula";
+    double words = count_words(file_path);
+    printf(build_str(words));
+}
