@@ -3,7 +3,7 @@
 #include "count.h"
 
 int main(int argc, char* argv[]) {
-    Server server = create_server(5528);
+    Server server = create_server(5530);
     while (1) {
         Request request = next_request(&server);
         switch(request.method) {
@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
             respond(&server, &request, 200, message);
             break;
             case POST:
-                search(server, request);
+                count(server, request);
             break;
             default:
 
